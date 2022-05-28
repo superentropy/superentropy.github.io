@@ -207,3 +207,28 @@ WIDGET= {
         "modules": "01234", "background": "5", "tmpColor": "4A86E8", "tmpSize": "16", "cityColor": "FF9900", "citySize": "16", "aqiColor": "4A86E8", "aqiSize": "16", "weatherIconSize": "24", "alertIconSize": "18", "padding": "0px 0px 0px 0px", "shadow": "0", "language": "auto", "fixed": "true", "vertical": "center", "horizontal": "center", "left": "100", "top": "20", "key": "8eb2a8f3608f49ca99d69eff5cb971c0"
     }
 }
+
+
+/* icon字体 */
+
+@import "//at.alicdn.com/t/font_3434487_21s0rr6vp9a.css";
+
+/* 星光背景 */
+
+
+/* 背景宇宙星光  */
+
+#universe {
+    display: block;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
