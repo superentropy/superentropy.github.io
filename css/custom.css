@@ -209,11 +209,15 @@ WIDGET= {
 }
 
 
-/* icon字体 */
+/* 图标 */
 
-@import "//at.alicdn.com/t/font_3434487_21s0rr6vp9a.css";
-
-/* 星光背景 */
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 20px !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 
 /* 背景宇宙星光  */
