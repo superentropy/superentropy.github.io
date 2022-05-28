@@ -168,3 +168,42 @@ h6::before {
     left: 0;
     top: 0;
 }
+
+
+/* 蝴蝶翅膀动效 */
+
+
+/*iconfont默认样式*/
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+
+/* 页脚蝴蝶振翅动画 */
+
+.copyright svg {
+    animation: butterfly 1s linear infinite alternate;
+}
+
+@keyframes butterfly {
+    from {
+        transform: rotateY(70deg);
+    }
+    to {
+        transform: rotateY(0deg);
+    }
+}
+
+
+/* 顶部天气 */
+
+WIDGET= {
+    "CONFIG": {
+        "modules": "01234", "background": "5", "tmpColor": "4A86E8", "tmpSize": "16", "cityColor": "FF9900", "citySize": "16", "aqiColor": "4A86E8", "aqiSize": "16", "weatherIconSize": "24", "alertIconSize": "18", "padding": "0px 0px 0px 0px", "shadow": "0", "language": "auto", "fixed": "true", "vertical": "center", "horizontal": "center", "left": "100", "top": "20", "key": "8eb2a8f3608f49ca99d69eff5cb971c0"
+    }
+}
