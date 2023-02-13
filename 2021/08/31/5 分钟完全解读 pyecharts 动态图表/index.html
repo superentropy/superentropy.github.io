@@ -159,6 +159,7 @@ pyecharts是基于百度开源图表组件echarts的python封装。支持所有�
 
 <p>pyecharts支持常用的基本图形展示，条形图、折线图、饼图、散点图、热力图、漏斗图、雷达图、箱型图、地图等，还能支持仪表盘，树形图的展示。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Bar,Line</span><br><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> options <span class="keyword">as</span> opts</span><br><span class="line"><span class="keyword">from</span> pyecharts.<span class="built_in">globals</span> <span class="keyword">import</span> ThemeType</span><br><span class="line"></span><br><span class="line">line = (</span><br><span class="line">    Line(init_opts=opts.InitOpts(theme=ThemeType.LIGHT, width=<span class="string">&#x27;1000px&#x27;</span>,height=<span class="string">&#x27;300px&#x27;</span> ))</span><br><span class="line">    .add_xaxis([<span class="string">&quot;衬衫&quot;</span>, <span class="string">&quot;羊毛衫&quot;</span>, <span class="string">&quot;雪纺衫&quot;</span>, <span class="string">&quot;裤子&quot;</span>, <span class="string">&quot;高跟鞋&quot;</span>, <span class="string">&quot;袜子&quot;</span>])</span><br><span class="line">    .add_yaxis(<span class="string">&quot;商家A&quot;</span>, [<span class="number">5</span>, <span class="number">20</span>, <span class="number">36</span>, <span class="number">10</span>, <span class="number">75</span>, <span class="number">90</span>])</span><br><span class="line">    .add_yaxis(<span class="string">&quot;商家B&quot;</span>, [<span class="number">15</span>, <span class="number">6</span>, <span class="number">45</span>, <span class="number">20</span>, <span class="number">35</span>, <span class="number">66</span>])</span><br><span class="line">    .set_global_opts(title_opts=opts.TitleOpts(title=<span class="string">&quot;主标题&quot;</span>, subtitle=<span class="string">&quot;副标题&quot;</span>),</span><br><span class="line">                        datazoom_opts=opts.DataZoomOpts(is_show=<span class="literal">True</span>))</span><br><span class="line">    .set_series_opts(label_opts=opts.LabelOpts(is_show=<span class="literal">True</span>))</span><br><span class="line">)</span><br><span class="line">line.render(<span class="string">&#x27;test.html&#x27;</span>)</span><br><span class="line">line.render_notebook()</span><br></pre></td></tr></table></figure>
+
 <p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ7wYq"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ7wYq.png" alt="hJ7wYq.png"></a></p>
 <p>从上面简单事例可知，pyecharts的使用包括:</p>
 <ul>
@@ -171,123 +172,121 @@ pyecharts是基于百度开源图表组件echarts的python封装。支持所有�
 <h3><b>3.常用配置使用</b></h3>
 在pyecharts中，关于图表外观显示等操作都是在相应的option里配置，包括坐标轴，图例，数据标签，网格线，图表样式/颜色，不同系列等等。
 
-[![hJ7cm4.png](https://z3.ax1x.com/2021/08/30/hJ7cm4.png)](https://imgtu.com/i/hJ7cm4)
-
-- InitOpts：各个图表类型初始配置
-- set_global_opts：全局外观配置
-- set_series_opts：系列配置
-
-为了方便大家和自己，下面给出一个常用的组合，通常可视化足够用了，快收藏。
-- InitOpts：主题，长宽，动画效果
-- DataZoomOpts：区域收缩，这个对于数据特别多，如一天的时间序列数据，特别有用，可以拖动查看全局和局部的数据（可以设置是否显式显式还是可拖动type_="inside"）
-- 标题配置TitleOpts：说明这个图表说明的是什么，必备的吧
-- 图例配置LegendOpts：说明图表中的不同数据项（这个图例是可以点击的，可以单独查看某个图例的数据，很有用）
-- 提示框配置TooltipOpts：显示图例具体某个点的数据
-- x轴和y轴坐标轴标题说明AxisOpts
-- 坐标刻度调整：特别适用于刻度说明比较多，可以显示角度变换等
-- markpoint/markline: 对图表的特别标记，用于重点说明部分和标注区分线
-
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ7cm4"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ7cm4.png" alt="hJ7cm4.png"></a></p>
+<ul>
+<li>InitOpts：各个图表类型初始配置</li>
+<li>set_global_opts：全局外观配置</li>
+<li>set_series_opts：系列配置</li>
+</ul>
+<p>为了方便大家和自己，下面给出一个常用的组合，通常可视化足够用了，快收藏。</p>
+<ul>
+<li>InitOpts：主题，长宽，动画效果</li>
+<li>DataZoomOpts：区域收缩，这个对于数据特别多，如一天的时间序列数据，特别有用，可以拖动查看全局和局部的数据（可以设置是否显式显式还是可拖动type_=”inside”）</li>
+<li>标题配置TitleOpts：说明这个图表说明的是什么，必备的吧</li>
+<li>图例配置LegendOpts：说明图表中的不同数据项（这个图例是可以点击的，可以单独查看某个图例的数据，很有用）</li>
+<li>提示框配置TooltipOpts：显示图例具体某个点的数据</li>
+<li>x轴和y轴坐标轴标题说明AxisOpts</li>
+<li>坐标刻度调整：特别适用于刻度说明比较多，可以显示角度变换等</li>
+<li>markpoint/markline: 对图表的特别标记，用于重点说明部分和标注区分线</li>
+</ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Bar,Line</span><br><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> options <span class="keyword">as</span> opts</span><br><span class="line"><span class="keyword">from</span> pyecharts.<span class="built_in">globals</span> <span class="keyword">import</span> ThemeType</span><br><span class="line"></span><br><span class="line">bar = (</span><br><span class="line">    Bar(init_opts=opts.InitOpts(theme=ThemeType.LIGHT, </span><br><span class="line">                                 width=<span class="string">&#x27;1000px&#x27;</span>,</span><br><span class="line">                                 height=<span class="string">&#x27;300px&#x27;</span>, </span><br><span class="line">                                 animation_opts=opts.AnimationOpts(animation_delay=<span class="number">1000</span>, animation_easing=<span class="string">&quot;elasticOut&quot;</span>)</span><br><span class="line">                                )</span><br><span class="line">        )</span><br><span class="line">    .add_xaxis([<span class="string">&quot;衬衫&quot;</span>, <span class="string">&quot;羊毛衫&quot;</span>, <span class="string">&quot;雪纺衫&quot;</span>, <span class="string">&quot;裤子&quot;</span>, <span class="string">&quot;高跟鞋&quot;</span>, <span class="string">&quot;袜子&quot;</span>])</span><br><span class="line">    .add_yaxis(<span class="string">&quot;商家A&quot;</span>, [<span class="number">5</span>, <span class="number">20</span>, <span class="number">36</span>, <span class="number">10</span>, <span class="number">75</span>, <span class="number">90</span>])</span><br><span class="line">    .add_yaxis(<span class="string">&quot;商家B&quot;</span>, [<span class="number">15</span>, <span class="number">6</span>, <span class="number">45</span>, <span class="number">20</span>, <span class="number">35</span>, <span class="number">66</span>])</span><br><span class="line">    .set_global_opts(title_opts=opts.TitleOpts(title=<span class="string">&quot;主标题&quot;</span>, subtitle=<span class="string">&quot;副标题&quot;</span>),</span><br><span class="line">                     toolbox_opts=opts.ToolboxOpts(is_show=<span class="literal">False</span>),</span><br><span class="line">                     <span class="comment"># datazoom_opts=opts.DataZoomOpts(is_show=True)</span></span><br><span class="line">                     datazoom_opts=[opts.DataZoomOpts(), opts.DataZoomOpts(type_=<span class="string">&quot;inside&quot;</span>)],</span><br><span class="line">                     legend_opts=opts.LegendOpts(type_=<span class="string">&quot;scroll&quot;</span>, pos_left=<span class="string">&quot;50%&quot;</span>, orient=<span class="string">&quot;vertical&quot;</span>),</span><br><span class="line">                     xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=-<span class="number">15</span>), name=<span class="string">&quot;我是 X 轴&quot;</span>),</span><br><span class="line">                     yaxis_opts=opts.AxisOpts(name=<span class="string">&quot;我是 Y 轴&quot;</span>, axislabel_opts=opts.LabelOpts(formatter=<span class="string">&quot;&#123;value&#125; /月&quot;</span>)),</span><br><span class="line">                     tooltip_opts=opts.TooltipOpts(trigger=<span class="string">&quot;axis&quot;</span>, axis_pointer_type=<span class="string">&quot;cross&quot;</span>),</span><br><span class="line"></span><br><span class="line">                    )</span><br><span class="line">    .set_series_opts(label_opts=opts.LabelOpts(is_show=<span class="literal">False</span>),</span><br><span class="line">                    markpoint_opts=opts.MarkPointOpts(</span><br><span class="line">                        data=[</span><br><span class="line">                            opts.MarkPointItem(type_=<span class="string">&quot;max&quot;</span>, name=<span class="string">&quot;最大值&quot;</span>),</span><br><span class="line">                            opts.MarkPointItem(type_=<span class="string">&quot;min&quot;</span>, name=<span class="string">&quot;最小值&quot;</span>),</span><br><span class="line">                            opts.MarkPointItem(type_=<span class="string">&quot;average&quot;</span>, name=<span class="string">&quot;平均值&quot;</span>),</span><br><span class="line">                        ]</span><br><span class="line">                        ),</span><br><span class="line">                    )</span><br><span class="line">)</span><br><span class="line"><span class="comment"># line.render(&#x27;test.html&#x27;)</span></span><br><span class="line">bar.render_notebook()</span><br></pre></td></tr></table></figure>
 
-[![hJ7rlT.png](https://z3.ax1x.com/2021/08/30/hJ7rlT.png)](https://imgtu.com/i/hJ7rlT)
-
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ7rlT"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ7rlT.png" alt="hJ7rlT.png"></a></p>
 <h3><b>4.常用组合图表使用</b></h3>
 常用组合图表有：
 - 不同图表类型组合如柱状图和折线图组合在一张图中（双y轴），主要的看同一视角不同指标的差异和关联；pyecharts中是通过overlap实现
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> options <span class="keyword">as</span> opts</span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Bar, Line</span><br><span class="line"><span class="keyword">from</span> pyecharts.faker <span class="keyword">import</span> Faker</span><br><span class="line"></span><br><span class="line">v1 = [<span class="number">2.0</span>, <span class="number">4.9</span>, <span class="number">7.0</span>, <span class="number">23.2</span>, <span class="number">25.6</span>, <span class="number">76.7</span>, <span class="number">135.6</span>, <span class="number">162.2</span>, <span class="number">32.6</span>, <span class="number">20.0</span>, <span class="number">6.4</span>, <span class="number">3.3</span>]</span><br><span class="line">v2 = [<span class="number">2.6</span>, <span class="number">5.9</span>, <span class="number">9.0</span>, <span class="number">26.4</span>, <span class="number">28.7</span>, <span class="number">70.7</span>, <span class="number">175.6</span>, <span class="number">182.2</span>, <span class="number">48.7</span>, <span class="number">18.8</span>, <span class="number">6.0</span>, <span class="number">2.3</span>]</span><br><span class="line">v3 = [<span class="number">2.0</span>, <span class="number">2.2</span>, <span class="number">3.3</span>, <span class="number">4.5</span>, <span class="number">6.3</span>, <span class="number">10.2</span>, <span class="number">20.3</span>, <span class="number">23.4</span>, <span class="number">23.0</span>, <span class="number">16.5</span>, <span class="number">12.0</span>, <span class="number">6.2</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bar = (</span><br><span class="line">    Bar(init_opts=opts.InitOpts(width=<span class="string">&quot;680px&quot;</span>, height=<span class="string">&quot;300px&quot;</span>))</span><br><span class="line">    .add_xaxis(Faker.months)</span><br><span class="line">    .add_yaxis(<span class="string">&quot;蒸发量&quot;</span>, v1)</span><br><span class="line">    .add_yaxis(<span class="string">&quot;降水量&quot;</span>, v2)</span><br><span class="line">    .extend_axis(</span><br><span class="line">        yaxis=opts.AxisOpts(</span><br><span class="line">            axislabel_opts=opts.LabelOpts(formatter=<span class="string">&quot;&#123;value&#125; °C&quot;</span>), interval=<span class="number">5</span></span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">    .set_series_opts(label_opts=opts.LabelOpts(is_show=<span class="literal">False</span>))</span><br><span class="line">    .set_global_opts(</span><br><span class="line">        title_opts=opts.TitleOpts(title=<span class="string">&quot;Overlap-bar+line&quot;</span>),</span><br><span class="line">        yaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(formatter=<span class="string">&quot;&#123;value&#125; ml&quot;</span>)),</span><br><span class="line">        tooltip_opts=opts.TooltipOpts(trigger=<span class="string">&quot;axis&quot;</span>, axis_pointer_type=<span class="string">&quot;cross&quot;</span>),</span><br><span class="line">    )</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">line = Line().add_xaxis(Faker.months).add_yaxis(<span class="string">&quot;平均温度&quot;</span>, v3, yaxis_index=<span class="number">1</span>)</span><br><span class="line">bar.overlap(line)</span><br><span class="line">bar.render_notebook()</span><br></pre></td></tr></table></figure>
 
-从实现上，
-
-- <font color=#1e6bb8>.extend_axis</font>增加一个纵坐标
-
-- 增加的折线图设置轴坐标时设置<font color=#1e6bb8>yaxis_index</font>索引和前面的纵坐标对应
-
-- 然后两张叠加<font color=#1e6bb8>overlap bar.overlap(line)</font>
-
-
-[![hJ7s6U.png](https://z3.ax1x.com/2021/08/30/hJ7s6U.png)](https://imgtu.com/i/hJ7s6U)
-
-- 多图标以网格（GRID）方式组合，主要是对比；pyecharts中是通过grid组件实现
+<p>从实现上，</p>
+<ul>
+<li><p><font color=#1e6bb8>.extend_axis</font>增加一个纵坐标</p>
+</li>
+<li><p>增加的折线图设置轴坐标时设置<font color=#1e6bb8>yaxis_index</font>索引和前面的纵坐标对应</p>
+</li>
+<li><p>然后两张叠加<font color=#1e6bb8>overlap bar.overlap(line)</font></p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ7s6U"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ7s6U.png" alt="hJ7s6U.png"></a></p>
+<ul>
+<li><p>多图标以网格（GRID）方式组合，主要是对比；pyecharts中是通过grid组件实现</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> options <span class="keyword">as</span> opts</span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Bar, Grid, Line</span><br><span class="line"><span class="keyword">from</span> pyecharts.faker <span class="keyword">import</span> Faker</span><br><span class="line"></span><br><span class="line">bar = (</span><br><span class="line">    Bar()</span><br><span class="line">    .add_xaxis(Faker.choose())</span><br><span class="line">    .add_yaxis(<span class="string">&quot;商家A&quot;</span>, Faker.values())</span><br><span class="line">    .add_yaxis(<span class="string">&quot;商家B&quot;</span>, Faker.values())</span><br><span class="line">    .set_global_opts(title_opts=opts.TitleOpts(title=<span class="string">&quot;Grid-Bar&quot;</span>))</span><br><span class="line">)</span><br><span class="line">line = (</span><br><span class="line">    Line()</span><br><span class="line">    .add_xaxis(Faker.choose())</span><br><span class="line">    .add_yaxis(<span class="string">&quot;商家A&quot;</span>, Faker.values())</span><br><span class="line">    .add_yaxis(<span class="string">&quot;商家B&quot;</span>, Faker.values())</span><br><span class="line">    .set_global_opts(</span><br><span class="line">        title_opts=opts.TitleOpts(title=<span class="string">&quot;Grid-Line&quot;</span>, pos_top=<span class="string">&quot;48%&quot;</span>),</span><br><span class="line">        legend_opts=opts.LegendOpts(pos_top=<span class="string">&quot;48%&quot;</span>),</span><br><span class="line">    )</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">grid = (</span><br><span class="line">    Grid(init_opts=opts.InitOpts(width=<span class="string">&quot;680px&quot;</span>, height=<span class="string">&quot;500px&quot;</span>))</span><br><span class="line">    .add(bar, grid_opts=opts.GridOpts(pos_bottom=<span class="string">&quot;60%&quot;</span>))</span><br><span class="line">    .add(line, grid_opts=opts.GridOpts(pos_top=<span class="string">&quot;60%&quot;</span>))</span><br><span class="line">)</span><br><span class="line">grid.render_notebook()</span><br></pre></td></tr></table></figure>
-从实现看
-
-- 主要通过<font color=#1e6bb8>Grid</font>把各种图形放入其中
-
-- 各个图表的位置通过<font color=#1e6bb8>GridOpts</font>来设置，上下左右的位置
-
-- 需要注意的是:grid中图表的title和图例需要根据所处位置来指定相对的位置（这个有点麻烦，多调调）
-
-
-[![hJ70f0.png](https://z3.ax1x.com/2021/08/30/hJ70f0.png)](https://imgtu.com/i/hJ70f0)
-
+<p>从实现看</p>
+</li>
+<li><p>主要通过<font color=#1e6bb8>Grid</font>把各种图形放入其中</p>
+</li>
+<li><p>各个图表的位置通过<font color=#1e6bb8>GridOpts</font>来设置，上下左右的位置</p>
+</li>
+<li><p>需要注意的是:grid中图表的title和图例需要根据所处位置来指定相对的位置（这个有点麻烦，多调调）</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ70f0"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ70f0.png" alt="hJ70f0.png"></a></p>
 <h3><b>5.地图使用</b></h3>
 地图可用在展示数据在地理位置上的分布情况，也是很常见的可视化的展示组件。pyecharts中是通过<font color=#1e6bb8>Map</font>类来实现的。具体细节需要注意：
 
-- map支持不同的maptype，如中国地图china(省级) china-cities（市级），世界地图world，还有中国各省市地图以及世界各国国家地图，参看github<font color=#1e6bb8>pyecharts/datasets/map_filename.json</font> 
-- map的数据格式是（地理位置， value）， 如<font color=#1e6bb8>[['广东', 76],['北京', 58]]</font>
-- 可以通过<font color=#1e6bb8>visualmap_opts</font>查看着重点
-
+<ul>
+<li>map支持不同的maptype，如中国地图china(省级) china-cities（市级），世界地图world，还有中国各省市地图以及世界各国国家地图，参看github<font color=#1e6bb8>pyecharts/datasets/map_filename.json</font> </li>
+<li>map的数据格式是（地理位置， value）， 如<font color=#1e6bb8>[[‘广东’, 76],[‘北京’, 58]]</font></li>
+<li>可以通过<font color=#1e6bb8>visualmap_opts</font>查看着重点</li>
+</ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> options <span class="keyword">as</span> opts</span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Map</span><br><span class="line"><span class="keyword">from</span> pyecharts.faker <span class="keyword">import</span> Faker</span><br><span class="line"></span><br><span class="line">c1 = (</span><br><span class="line">    Map()</span><br><span class="line">    .add(<span class="string">&quot;商家A&quot;</span>, [<span class="built_in">list</span>(z) <span class="keyword">for</span> z <span class="keyword">in</span> <span class="built_in">zip</span>(Faker.guangdong_city, Faker.values())], <span class="string">&quot;广东&quot;</span>)</span><br><span class="line">    .set_global_opts(</span><br><span class="line">        title_opts=opts.TitleOpts(title=<span class="string">&quot;Map-广东地图&quot;</span>), visualmap_opts=opts.VisualMapOpts()</span><br><span class="line">    )</span><br><span class="line">   </span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">c2 = (</span><br><span class="line">    Map()</span><br><span class="line">    .add(<span class="string">&quot;商家A&quot;</span>, [<span class="built_in">list</span>(z) <span class="keyword">for</span> z <span class="keyword">in</span> <span class="built_in">zip</span>(Faker.provinces, Faker.values())], <span class="string">&quot;china&quot;</span>)</span><br><span class="line">    .set_global_opts(</span><br><span class="line">        title_opts=opts.TitleOpts(title=<span class="string">&quot;Map-VisualMap（连续型）&quot;</span>),</span><br><span class="line">        visualmap_opts=opts.VisualMapOpts(max_=<span class="number">200</span>),</span><br><span class="line">    )</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># c1.render_notebook()</span></span><br><span class="line">c2.render_notebook()</span><br></pre></td></tr></table></figure>
 
-[![hJ7yXF.png](https://z3.ax1x.com/2021/08/30/hJ7yXF.png)](https://imgtu.com/i/hJ7yXF)
-
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ7yXF"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ7yXF.png" alt="hJ7yXF.png"></a></p>
 <h3><b>6.特色图表使用</b></h3>
 在学习pyecharts时，看到一些比较有意思的（动态展示）组件，如随着时间动态展示图表数据的变化。这里做下介绍
 - Timeline：时间线轮播多图 先声明一个<font color=#009688>Timeliner</font>, 按照展示的时间顺序，将图表add到<font color=#009688>Timeline</font>上; 可以通过播放按钮循环按照时间顺序展示图表。
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> options <span class="keyword">as</span> opts</span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Pie, Timeline</span><br><span class="line"><span class="keyword">from</span> pyecharts.faker <span class="keyword">import</span> Faker</span><br><span class="line"></span><br><span class="line">attr = Faker.choose()</span><br><span class="line">tl = Timeline()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2015</span>, <span class="number">2020</span>):</span><br><span class="line">    pie = (</span><br><span class="line">        Pie()</span><br><span class="line">        .add(</span><br><span class="line">            <span class="string">&quot;商家A&quot;</span>,</span><br><span class="line">            [<span class="built_in">list</span>(z) <span class="keyword">for</span> z <span class="keyword">in</span> <span class="built_in">zip</span>(attr, Faker.values())],</span><br><span class="line">            rosetype=<span class="string">&quot;radius&quot;</span>,</span><br><span class="line">            radius=[<span class="string">&quot;30%&quot;</span>, <span class="string">&quot;55%&quot;</span>],</span><br><span class="line">        )</span><br><span class="line">        .set_global_opts(title_opts=opts.TitleOpts(<span class="string">&quot;某商店&#123;&#125;年营业额&quot;</span>.<span class="built_in">format</span>(i)))</span><br><span class="line">    )</span><br><span class="line">    tl.add(pie, <span class="string">&quot;&#123;&#125;年&quot;</span>.<span class="built_in">format</span>(i))</span><br><span class="line">tl.render_notebook()</span><br></pre></td></tr></table></figure>
 
-[![hJ7DpV.png](https://z3.ax1x.com/2021/08/30/hJ7DpV.png)](https://imgtu.com/i/hJ7DpV)
-
-- 仪表盘
-
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ7DpV"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ7DpV.png" alt="hJ7DpV.png"></a></p>
+<ul>
+<li>仪表盘</li>
+</ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> options <span class="keyword">as</span> opts</span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Gauge</span><br><span class="line"></span><br><span class="line">c = (</span><br><span class="line">    Gauge()</span><br><span class="line">    .add(<span class="string">&quot;&quot;</span>, [(<span class="string">&quot;完成率&quot;</span>, <span class="number">30.6</span>)], radius=<span class="string">&quot;70%&quot;</span>,</span><br><span class="line">        axisline_opts=opts.AxisLineOpts(</span><br><span class="line">            linestyle_opts=opts.LineStyleOpts(</span><br><span class="line">                color=[(<span class="number">0.3</span>, <span class="string">&quot;#67e0e3&quot;</span>), (<span class="number">0.7</span>, <span class="string">&quot;#37a2da&quot;</span>), (<span class="number">1</span>, <span class="string">&quot;#fd666d&quot;</span>)], width=<span class="number">30</span>)</span><br><span class="line">            ),</span><br><span class="line">            title_label_opts=opts.LabelOpts(</span><br><span class="line">                font_size=<span class="number">20</span>, color=<span class="string">&quot;blue&quot;</span>, font_family=<span class="string">&quot;Microsoft YaHei&quot;</span></span><br><span class="line">            ),</span><br><span class="line">        )</span><br><span class="line">    .set_global_opts(title_opts=opts.TitleOpts(title=<span class="string">&quot;Gauge-基本示例&quot;</span>), legend_opts=opts.LegendOpts(is_show=<span class="literal">False</span>),)</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line">c.render_notebook()</span><br></pre></td></tr></table></figure>
 
-[![hJ7dkn.png](https://z3.ax1x.com/2021/08/30/hJ7dkn.png)](https://imgtu.com/i/hJ7dkn)
-
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ7dkn"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ7dkn.png" alt="hJ7dkn.png"></a></p>
 <h3><b>7.其他图表一览</b></h3>
 从上面的实例看，已经展示地图，条形图，折线图，饼图，仪表盘。这里展示下pyecharts提供的更多的图表，
 
-- 雷达图 Radar
-
-[![hJ7I1K.png](https://z3.ax1x.com/2021/08/30/hJ7I1K.png)](https://imgtu.com/i/hJ7I1K)
-
-- 树形图 Tree
-
-[![hJ7UTs.png](https://z3.ax1x.com/2021/08/30/hJ7UTs.png)](https://imgtu.com/i/hJ7UTs)
-
-
-- 热力图 heatMap
-
-[![hJ7g0J.png](https://z3.ax1x.com/2021/08/30/hJ7g0J.png)](https://imgtu.com/i/hJ7g0J)
-
-- 日历图 Calendar
-
-[![hJ7279.png](https://z3.ax1x.com/2021/08/30/hJ7279.png)](https://imgtu.com/i/hJ7279)
-
-- 散点图 Scatter
-
-[![hJ7ft1.png](https://z3.ax1x.com/2021/08/30/hJ7ft1.png)](https://imgtu.com/i/hJ7ft1)
-
-- 3D图 Bar3D
-
-[![hJ7hfx.png](https://z3.ax1x.com/2021/08/30/hJ7hfx.png)](https://imgtu.com/i/hJ7hfx)
-
-- 箱型图 Boxplot
-
-[![hJ75p6.png](https://z3.ax1x.com/2021/08/30/hJ75p6.png)](https://imgtu.com/i/hJ75p6)
-
+<ul>
+<li>雷达图 Radar</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ7I1K"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ7I1K.png" alt="hJ7I1K.png"></a></p>
+<ul>
+<li>树形图 Tree</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ7UTs"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ7UTs.png" alt="hJ7UTs.png"></a></p>
+<ul>
+<li>热力图 heatMap</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ7g0J"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ7g0J.png" alt="hJ7g0J.png"></a></p>
+<ul>
+<li>日历图 Calendar</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ7279"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ7279.png" alt="hJ7279.png"></a></p>
+<ul>
+<li>散点图 Scatter</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ7ft1"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ7ft1.png" alt="hJ7ft1.png"></a></p>
+<ul>
+<li>3D图 Bar3D</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ7hfx"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ7hfx.png" alt="hJ7hfx.png"></a></p>
+<ul>
+<li>箱型图 Boxplot</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hJ75p6"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://z3.ax1x.com/2021/08/30/hJ75p6.png" alt="hJ75p6.png"></a></p>
 <h3><b>8.总结</b></h3>
 本文介绍的基于echarts的python动态图表展示组件pyecharts，除了提供众多常用的图表外，最重要的是支持动态操作数据。总结如下：
 
-- pyecharts所有的图像属性设置都通过opts来设置，有图表初始属性/全局属性/系列属性
-- 本文提供常用的配置，足够用了，拿走不谢，见<font color=#009688>常用配置使用</font>
-- pyecharts 支持多图表组合，如折线图和条形图 overlap， 多个图表grid展示
-- pyecharts好用的map，可以展示中国省市，世界各国地图，请按照[位置，value]准备数据
-- Timeline可以让你的图表按照时间轮播
-- 更多图表参见<font color=#009688>参考资料</font>
-
+<ul>
+<li>pyecharts所有的图像属性设置都通过opts来设置，有图表初始属性/全局属性/系列属性</li>
+<li>本文提供常用的配置，足够用了，拿走不谢，见<font color=#009688>常用配置使用</font></li>
+<li>pyecharts 支持多图表组合，如折线图和条形图 overlap， 多个图表grid展示</li>
+<li>pyecharts好用的map，可以展示中国省市，世界各国地图，请按照[位置，value]准备数据</li>
+<li>Timeline可以让你的图表按照时间轮播</li>
+<li>更多图表参见<font color=#009688>参考资料</font></li>
+</ul>
 <h3><b>9.参考资料</b></h3>
 
 <ul>
